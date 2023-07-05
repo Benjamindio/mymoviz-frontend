@@ -47,8 +47,8 @@ function Home() {
     .then(response => response.json())
     .then(data => {
       const dataMovie =[]
-      const movie= data
-     for (let i =0 ; i < movie;i++) {
+      const movie= data.movies
+     for (let i =0 ; i < movie.length;i++) {
       const newMovie ={
         title: movie[i].title,
         poster: `https://image.tmdb.org/t/p/w500${movie[i].poster_path}`, 
@@ -59,7 +59,8 @@ function Home() {
       dataMovie.push(newMovie)
      }
 
-     setMoviesData(data.movies)
+
+     setMoviesData(dataMovie)
     });
   }, []);
   const truncate = (str,charNum) => {
