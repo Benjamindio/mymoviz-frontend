@@ -46,7 +46,7 @@ function Home() {
     fetch('https://mymoviz-backend-five-blond.vercel.app/movies')
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      /*console.log(data)
       console.log(data.movies)
       const dataMovie =[]
       const movie= data.movies.results
@@ -59,9 +59,9 @@ function Home() {
         overview: movie[i].overview, 
       }
       dataMovie.push(newMovie)
-     }
+     }*/
 
-     setMoviesData(dataMovie)
+     setMoviesData(data)
     });
   }, []);
   const truncate = (str,charNum) => {
