@@ -46,11 +46,9 @@ function Home() {
     fetch('https://mymoviz-backend-five-blond.vercel.app/movies')
     .then(response => response.json())
     .then(data => {
-      /*console.log(data)
-      console.log(data.movies)
       const dataMovie =[]
-      const movie= data.movies.results
-     for (let i =0 ; i < movie.length;i++) {
+      const movie= data
+     for (let i =0 ; i < movie;i++) {
       const newMovie ={
         title: movie[i].title,
         poster: `https://image.tmdb.org/t/p/w500${movie[i].poster_path}`, 
@@ -59,7 +57,7 @@ function Home() {
         overview: movie[i].overview, 
       }
       dataMovie.push(newMovie)
-     }*/
+     }
 
      setMoviesData(data.movies)
     });
