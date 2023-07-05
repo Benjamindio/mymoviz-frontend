@@ -43,21 +43,10 @@ function Home() {
     { title: 'Inception', poster: 'inception.jpg', voteAverage: 8.4, voteCount: 31_546, overview: 'Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life.' },
   ];*/
   useEffect(()=> {
-    fetch('https://mymoviz-backend-five-blond.vercel.app/movies')
+    fetch('http://localhost:3000/movies')
     .then(response => response.json())
     .then(data => {
-      const dataMovie =[]
-     for (let i =0 ; i < data.movies.results.length;i++) {
-      const newMovie ={
-        title: data.movies.results[i].title,
-        poster: `https://image.tmdb.org/t/p/w500${data.movies.results[i].poster_path}`, 
-        voteAverage: data.movies.results[i].vote_average, 
-        voteCount: data.movies.results[i].vote_count, 
-        overview: data.movies.results[i].overview, 
-      }
-      dataMovie.push(newMovie)
-     }
-     setMoviesData(dataMovie)
+     setMoviesData(data.movies)
     });
   }, []);
 
