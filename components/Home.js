@@ -46,10 +46,22 @@ function Home() {
     fetch('https://mymoviz-backend-five-blond.vercel.app/movies')
     .then(response => response.json())
     .then(data => {
-     setMoviesData(data.movies)
+      console.log(data)
+      const dataMovie =[]
+     for (let i =0 ; i < data.movies.results.length;i++) {
+      const newMovie ={
+        title: data.results[i].title,
+        poster: `https://image.tmdb.org/t/p/w500${data.results[i].poster_path}`, 
+        voteAverage: data.movies.results[i].vote_average, 
+        voteCount: data.movies.results[i].vote_count, 
+        overview: data.movies.results[i].overview, 
+      }
+      dataMovie.push(newMovie)
+     }
+
+     setMoviesData(dataMovie)
     });
   }, []);
-
   const truncate = (str,charNum) => {
     if(str.length <= charNum) {
       return str
