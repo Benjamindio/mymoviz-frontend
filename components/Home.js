@@ -43,7 +43,7 @@ function Home() {
     { title: 'Inception', poster: 'inception.jpg', voteAverage: 8.4, voteCount: 31_546, overview: 'Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life.' },
   ];*/
   useEffect(()=> {
-    fetch('http://localhost:3000/movies')
+    fetch('https://whatyearisit-backend-azure.vercel.app/movies')
     .then(response => response.json())
     .then(data => {
      setMoviesData(data.movies)
