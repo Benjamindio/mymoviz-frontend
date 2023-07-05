@@ -61,7 +61,7 @@ function Home() {
       dataMovie.push(newMovie)
      }*/
 
-     setMoviesData(data)
+     setMoviesData(data.movies)
     });
   }, []);
   const truncate = (str,charNum) => {
