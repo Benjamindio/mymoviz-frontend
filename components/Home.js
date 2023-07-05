@@ -47,14 +47,16 @@ function Home() {
     .then(response => response.json())
     .then(data => {
       console.log(data)
+      console.log(data.movies)
       const dataMovie =[]
-     for (let i =0 ; i < data.movies.results.length;i++) {
+      const movie= data.movies.results
+     for (let i =0 ; i < movie.length;i++) {
       const newMovie ={
-        title: data.results[i].title,
-        poster: `https://image.tmdb.org/t/p/w500${data.results[i].poster_path}`, 
-        voteAverage: data.movies.results[i].vote_average, 
-        voteCount: data.movies.results[i].vote_count, 
-        overview: data.movies.results[i].overview, 
+        title: movie[i].title,
+        poster: `https://image.tmdb.org/t/p/w500${movie[i].poster_path}`, 
+        voteAverage: movie[i].vote_average, 
+        voteCount: movie[i].vote_count, 
+        overview: movie[i].overview, 
       }
       dataMovie.push(newMovie)
      }
